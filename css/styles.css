@@ -316,6 +316,52 @@ ul { list-style: none; }
   border: 1px solid rgba(255,253,249,0.5);
 }
 
+/* ── SERVICE SUBPAGES ── */
+.hero--service {
+  height: 52vh;
+  min-height: 320px;
+}
+.hero--service .hero-bg img { opacity: 0.45; }
+
+a.service-card {
+  color: inherit;
+  cursor: pointer;
+}
+a.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(92,64,51,0.12);
+}
+
+.service-page-intro { max-width: 720px; }
+.service-page-lead {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--brown-deep);
+  margin-bottom: 16px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+}
+.benefit-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  border-top: 3px solid var(--terracotta);
+}
+.benefit-icon { font-size: 28px; margin-bottom: 12px; }
+.benefit-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--brown-deep);
+  margin-bottom: 10px;
+}
+.benefit-text { font-size: 14px; color: var(--brown-mid); line-height: 1.7; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
@@ -325,6 +371,7 @@ ul { list-style: none; }
   .about-inner { grid-template-columns: 1fr; }
   .about-image { max-width: 280px; margin: 0 auto; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits-grid { grid-template-columns: 1fr; max-width: 480px; }
   .team-grid { grid-template-columns: 1fr; max-width: 360px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .footer { flex-direction: column; text-align: center; }
