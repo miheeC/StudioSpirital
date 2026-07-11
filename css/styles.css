@@ -164,6 +164,7 @@ ul { list-style: none; }
 .service-card {
   background: var(--bg-white);
   border-radius: 12px;
+  border-bottom: 3px solid var(--terracotta);
   padding: 28px 24px;
   text-align: center;
 }
@@ -177,7 +178,7 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 16px 0;
+  padding: 3px 0;
   border-bottom: 1px solid rgba(212,169,122,0.2);
   gap: 16px;
 }
@@ -194,7 +195,7 @@ ul { list-style: none; }
   max-width: 720px;
 }
 .team-card {
-  background: var(--bg-white);
+  background: var(--bg-cream);
   border-radius: 12px;
   padding: 32px 24px;
   text-align: center;
@@ -242,6 +243,7 @@ ul { list-style: none; }
 .footer-links a { color: var(--brown-mid); transition: color 0.2s; }
 .footer-links a:hover { color: var(--sand); }
 .footer-contact { font-size: 13px; text-align: right; }
+.footer-contact > div:first-child { text-align: center; }
 .footer-phone { color: var(--sand); margin-top: 4px; }
 
 /* ── PERSON ABOUT ── */
@@ -273,6 +275,33 @@ ul { list-style: none; }
 .service-item-name { font-size: 15px; color: var(--brown-deep); margin-bottom: 4px; }
 .service-item-detail { font-size: 13px; color: var(--brown-mid); }
 .service-item-price { font-family: var(--font-serif); font-size: 18px; color: var(--terracotta); white-space: nowrap; }
+
+/* ── PRICE GROUPS (grouped price list on subpages) ── */
+.price-groups { display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
+.price-group {
+  background: var(--bg-white);
+  border-radius: 10px;
+  padding: 24px 28px;
+  border-left: 3px solid var(--terracotta);
+}
+.section--white .price-group { background: var(--bg-cream); }
+.price-group-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--brown-deep);
+}
+.price-group-detail { font-size: 13px; color: var(--brown-mid); margin-bottom: 14px; }
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 3px 0;
+}
+.price-row + .price-row { border-top: 1px solid rgba(0, 0, 0, 0.06); }
+.price-row-label { font-size: 14px; color: var(--brown-mid); }
+.price-row-value { font-family: var(--font-serif); font-size: 17px; color: var(--terracotta); white-space: nowrap; }
+.price-row-value--free { color: var(--brown-deep); }
 
 /* ── GALLERY ── */
 .gallery-grid {
