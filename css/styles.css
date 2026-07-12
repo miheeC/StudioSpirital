@@ -21,7 +21,7 @@ ul { list-style: none; }
 
 /* ── SECTION LABEL ── */
 .section-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--terracotta);
@@ -49,6 +49,20 @@ ul { list-style: none; }
   color: var(--bg-cream);
   white-space: nowrap;
 }
+.nav-center-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 0;
+}
+.nav-center-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.2s;
+}
+.nav-center-logo:hover img { transform: scale(1.08); }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a {
   font-size: 13px;
@@ -259,6 +273,7 @@ ul { list-style: none; }
   border-left: 3px solid var(--terracotta);
 }
 .person-bio { font-size: 15px; color: var(--brown-mid); line-height: 1.8; }
+.person-bio a { color: var(--terracotta); }
 
 /* ── SERVICE LIST (subpages) ── */
 .service-list { display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
@@ -285,6 +300,16 @@ ul { list-style: none; }
   border-left: 3px solid var(--terracotta);
 }
 .section--white .price-group { background: var(--bg-cream); }
+a.price-group {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+a.price-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 .price-group-title {
   font-family: var(--font-serif);
   font-size: 18px;
@@ -428,10 +453,12 @@ a.service-card:hover {
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
   .nav-links { display: none; }
+  .nav-logo-text { display: none; }
+  .nav-center-logo img { width: 34px; height: 34px; }
   .hero, .section, .footer, .contact-section { padding-left: 24px; padding-right: 24px; }
   .hero { padding-bottom: 48px; }
   .about-inner { grid-template-columns: 1fr; }
-  .about-image { max-width: 280px; margin: 0 auto; }
+  .about-image { max-width: 100%; margin: 0 auto; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid { grid-template-columns: 1fr; max-width: 480px; }
   .team-grid { grid-template-columns: 1fr; max-width: 360px; }
