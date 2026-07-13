@@ -49,20 +49,6 @@ ul { list-style: none; }
   color: var(--bg-cream);
   white-space: nowrap;
 }
-.nav-center-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  line-height: 0;
-}
-.nav-center-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: block;
-  transition: transform 0.2s;
-}
-.nav-center-logo:hover img { transform: scale(1.08); }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a {
   font-size: 13px;
@@ -254,8 +240,9 @@ ul { list-style: none; }
 .footer-brand { font-family: var(--font-serif); font-size: 14px; color: var(--bg-cream); letter-spacing: 2px; }
 .footer-location { font-size: 12px; margin-top: 4px; }
 .footer-links { display: flex; gap: 20px; font-size: 13px; }
-.footer-links a { color: var(--brown-mid); transition: color 0.2s; }
+.footer-links a { display: flex; align-items: center; gap: 6px; color: var(--brown-mid); transition: color 0.2s; }
 .footer-links a:hover { color: var(--sand); }
+.footer-links svg { width: 15px; height: 15px; fill: currentColor; }
 .footer-contact { font-size: 13px; text-align: right; }
 .footer-contact > div:first-child { text-align: center; }
 .footer-phone { color: var(--sand); margin-top: 4px; }
@@ -453,15 +440,13 @@ a.service-card:hover {
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
   .nav-links { display: none; }
-  .nav-logo-text { display: none; }
-  .nav-center-logo img { width: 34px; height: 34px; }
   .hero, .section, .footer, .contact-section { padding-left: 24px; padding-right: 24px; }
   .hero { padding-bottom: 48px; }
   .about-inner { grid-template-columns: 1fr; }
   .about-image { max-width: 100%; margin: 0 auto; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid { grid-template-columns: 1fr; max-width: 480px; }
-  .team-grid { grid-template-columns: 1fr; max-width: 360px; }
+  .team-grid { grid-template-columns: 1fr; max-width: 100%; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .footer { flex-direction: column; text-align: center; }
   .footer-contact { text-align: center; }
