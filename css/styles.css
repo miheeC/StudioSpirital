@@ -78,7 +78,9 @@ ul { list-style: none; }
 .hero {
   position: relative;
   height: 100vh;
-  height: 100svh; /* stable in mobile/in-app browsers: doesn't resize when browser chrome collapses while scrolling */
+  /* --vhpx is frozen by js/viewport.js so in-app browsers (Instagram etc.)
+     can't resize the hero mid-scroll; falls back to svh without JS */
+  height: calc(var(--vhpx, 1svh) * 100);
   min-height: 500px;
   display: flex;
   align-items: flex-end;
@@ -127,7 +129,7 @@ ul { list-style: none; }
 }
 .hero--person {
   height: 70vh;
-  height: 70svh;
+  height: calc(var(--vhpx, 1svh) * 70);
   min-height: 420px;
 }
 .hero--person .hero-bg img { opacity: 0.5; }
@@ -401,7 +403,7 @@ a.price-group:hover {
 /* ── SERVICE SUBPAGES ── */
 .hero--service {
   height: 52vh;
-  height: 52svh;
+  height: calc(var(--vhpx, 1svh) * 52);
   min-height: 320px;
 }
 .hero--service .hero-bg img { opacity: 0.45; }
