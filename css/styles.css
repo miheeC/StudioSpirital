@@ -78,6 +78,7 @@ ul { list-style: none; }
 .hero {
   position: relative;
   height: 100vh;
+  height: 100svh; /* stable in mobile/in-app browsers: doesn't resize when browser chrome collapses while scrolling */
   min-height: 500px;
   display: flex;
   align-items: flex-end;
@@ -126,6 +127,7 @@ ul { list-style: none; }
 }
 .hero--person {
   height: 70vh;
+  height: 70svh;
   min-height: 420px;
 }
 .hero--person .hero-bg img { opacity: 0.5; }
@@ -344,6 +346,7 @@ a.price-group:hover {
 .lightbox-img {
   max-width: 90vw;
   max-height: 90vh;
+  max-height: 90svh;
   object-fit: contain;
   border-radius: 6px;
   cursor: default;
@@ -398,6 +401,7 @@ a.price-group:hover {
 /* ── SERVICE SUBPAGES ── */
 .hero--service {
   height: 52vh;
+  height: 52svh;
   min-height: 320px;
 }
 .hero--service .hero-bg img { opacity: 0.45; }
