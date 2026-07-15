@@ -14,7 +14,7 @@
   function close() {
     lightbox.classList.remove('is-open');
     lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImg.src = '';
+    lightboxImg.removeAttribute('src');
   }
 
   lightbox.addEventListener('click', function (e) {

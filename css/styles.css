@@ -21,6 +21,7 @@ ul { list-style: none; }
 
 /* ── SECTION LABEL ── */
 .section-label {
+  font-weight: normal;
   font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -152,7 +153,7 @@ ul { list-style: none; }
   margin-bottom: 16px;
 }
 .about-text { font-size: 15px; color: var(--brown-mid); line-height: 1.8; }
-.about-image { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; }
+.about-image { width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; }
 
 /* ── SERVICES GRID ── */
 .services-grid {
@@ -169,7 +170,7 @@ ul { list-style: none; }
   text-align: center;
 }
 .service-icon { font-size: 28px; margin-bottom: 12px; }
-.service-name { font-family: var(--font-serif); font-size: 20px; color: var(--brown-deep); margin-bottom: 6px; }
+.service-name { font-family: var(--font-serif); font-weight: normal; font-size: 20px; color: var(--brown-deep); margin-bottom: 6px; }
 .service-desc { font-size: 13px; color: var(--brown-mid); }
 
 /* ── PRICE LIST ── */
@@ -211,7 +212,7 @@ ul { list-style: none; }
   margin: 0 auto 16px;
   background: var(--sand);
 }
-.team-name { font-family: var(--font-serif); font-size: 22px; color: var(--brown-deep); margin-bottom: 8px; }
+.team-name { font-family: var(--font-serif); font-weight: normal; font-size: 22px; color: var(--brown-deep); margin-bottom: 8px; }
 .team-specialties { font-size: 12px; color: var(--brown-mid); margin-bottom: 20px; line-height: 1.6; }
 .btn-pill {
   display: inline-block;
@@ -299,6 +300,7 @@ a.price-group:hover {
 }
 .price-group-title {
   font-family: var(--font-serif);
+  font-weight: normal;
   font-size: 18px;
   color: var(--brown-deep);
 }
@@ -322,7 +324,7 @@ a.price-group:hover {
   gap: 8px;
   max-width: 960px;
 }
-.gallery-img { aspect-ratio: 1; object-fit: cover; border-radius: 8px; width: 100%; cursor: zoom-in; }
+.gallery-img { aspect-ratio: 1; object-fit: cover; border-radius: 8px; width: 100%; height: auto; cursor: zoom-in; }
 
 /* ── LIGHTBOX ── */
 .lightbox {
@@ -406,6 +408,34 @@ a.service-card:hover {
   box-shadow: 0 12px 32px rgba(92,64,51,0.12);
 }
 
+/* ── RELATED SERVICES (cross-links on service subpages) ── */
+.related-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 960px;
+}
+.related-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(212,169,122,0.18);
+  border: 1px solid var(--sand);
+  color: var(--brown-deep);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.related-pill:hover {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(92,64,51,0.18);
+}
+
 .service-page-intro { max-width: 720px; }
 .service-page-lead {
   font-family: var(--font-serif);
@@ -430,6 +460,7 @@ a.service-card:hover {
 .benefit-icon { font-size: 28px; margin-bottom: 12px; }
 .benefit-title {
   font-family: var(--font-serif);
+  font-weight: normal;
   font-size: 16px;
   color: var(--brown-deep);
   margin-bottom: 10px;
