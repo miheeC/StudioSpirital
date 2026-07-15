@@ -240,6 +240,9 @@ ul { list-style: none; }
 }
 .footer-brand { font-family: var(--font-serif); font-size: 14px; color: var(--bg-cream); letter-spacing: 2px; }
 .footer-location { font-size: 12px; margin-top: 4px; }
+.footer-legal { margin-top: 8px; font-size: 12px; }
+.footer-legal a { color: var(--brown-mid); text-decoration: underline; }
+.footer-legal a:hover { color: var(--sand); }
 .footer-links { display: flex; gap: 20px; font-size: 13px; }
 .footer-links a { display: flex; align-items: center; gap: 6px; color: var(--brown-mid); transition: color 0.2s; }
 .footer-links a:hover { color: var(--sand); }
@@ -466,6 +469,16 @@ a.service-card:hover {
   margin-bottom: 10px;
 }
 .benefit-text { font-size: 14px; color: var(--brown-mid); line-height: 1.7; }
+
+/* ── LEGAL PAGE ── */
+.legal-content { max-width: 760px; }
+.legal-content .about-heading { margin-top: 32px; }
+.legal-content .about-heading:first-child { margin-top: 0; }
+.legal-content .about-text { margin-top: 10px; }
+.legal-content ul { list-style: disc; padding-left: 20px; margin-top: 10px; }
+.legal-content li { font-size: 15px; color: var(--brown-mid); line-height: 1.8; margin-bottom: 6px; }
+.legal-content li:has(strong) { margin-bottom: 16px; }
+.legal-updated { font-size: 12px; color: var(--brown-mid); opacity: 0.75; margin-top: 8px; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
