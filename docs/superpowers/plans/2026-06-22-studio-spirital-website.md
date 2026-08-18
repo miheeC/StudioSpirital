@@ -617,7 +617,7 @@ Insert the following before `<script src="js/lang.js">`.
       <div class="service-card">
         <div class="service-icon">✨</div>
         <div class="service-name">Reiki</div>
-        <div class="service-desc" data-sl="Energijsko zdravljenje" data-en="Energy healing">Energijsko zdravljenje</div>
+        <div class="service-desc" data-sl="Sprostitev in umiritev" data-en="Relaxation and stillness">Sprostitev in umiritev</div>
       </div>
       <div class="service-card">
         <div class="service-icon">🌿</div>
@@ -689,7 +689,7 @@ Insert the following before `<script src="js/lang.js">`.
       </div>
       <div class="price-row">
         <div>
-          <div class="price-service" data-sl="Reiki terapija" data-en="Reiki therapy">Reiki terapija</div>
+          <div class="price-service" data-sl="Reiki seansa" data-en="Reiki session">Reiki seansa</div>
           <div class="price-detail" data-sl="60 min" data-en="60 min">60 min</div>
         </div>
         <div class="price-amount">— €</div>
@@ -822,8 +822,8 @@ git commit -m "feat: add Price List, Team, and Footer to index.html — home pag
     <div class="service-list">
       <div class="service-item">
         <div>
-          <div class="service-item-name" data-sl="Reiki terapija" data-en="Reiki therapy">Reiki terapija</div>
-          <div class="service-item-detail" data-sl="Energijsko zdravljenje · 60 min" data-en="Energy healing · 60 min">Energijsko zdravljenje · 60 min</div>
+          <div class="service-item-name" data-sl="Reiki seansa" data-en="Reiki session">Reiki seansa</div>
+          <div class="service-item-detail" data-sl="Sprostitev in umiritev · 60 min" data-en="Relaxation and stillness · 60 min">Sprostitev in umiritev · 60 min</div>
         </div>
         <div class="service-item-price">— €</div>
       </div>
