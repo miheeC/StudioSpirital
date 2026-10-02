@@ -16,19 +16,19 @@
     gtag('config', 'G-9NQNE734RS');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio Spirital — Masaže, Meditacije, Reiki, Vadba · Ptuj</title>
-  <meta name="description" content="Masaže, reiki, meditacije, kanaliziranje, vadbe in plesne delavnice na Ptuju. Studio Spirital je prostor za sprostitev telesa in duha – pridruži se.">
-  <meta property="og:title" content="Studio Spirital — Masaže, Meditacije, Reiki, Vadba · Ptuj">
-  <meta property="og:description" content="Masaže, reiki, meditacije, kanaliziranje, vadbe in plesne delavnice na Ptuju. Studio Spirital je prostor za sprostitev telesa in duha – pridruži se.">
-  <meta property="og:image" content="https://studiospirital.si/images/hero.jpg">
+  <title>Spirital — Prostor zate. Za dušo in telo. · Ptuj</title>
+  <meta name="description" content="Elivital® praksa, reiki, kanaliziranje, meditacije in dogodki za ženske na Ptuju. Prostor, kjer se ustaviš in se ponovno povežeš s svojim telesom in energijo.">
+  <meta property="og:title" content="Spirital — Prostor zate. Za dušo in telo. · Ptuj">
+  <meta property="og:description" content="Elivital® praksa, reiki, kanaliziranje, meditacije in dogodki za ženske na Ptuju. Prostor, kjer se ustaviš in se ponovno povežeš s svojim telesom in energijo.">
+  <meta property="og:image" content="https://studiospirital.si/images/hero-elina.jpg">
   <meta property="og:url" content="https://studiospirital.si/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sl_SI">
-  <meta property="og:site_name" content="Studio Spirital">
+  <meta property="og:site_name" content="Spirital">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio Spirital — Masaže, Meditacije, Reiki, Vadba · Ptuj">
-  <meta name="twitter:description" content="Masaže, reiki, meditacije, kanaliziranje, vadbe in plesne delavnice na Ptuju. Studio Spirital je prostor za sprostitev telesa in duha – pridruži se.">
-  <meta name="twitter:image" content="https://studiospirital.si/images/hero.jpg">
+  <meta name="twitter:title" content="Spirital — Prostor zate. Za dušo in telo. · Ptuj">
+  <meta name="twitter:description" content="Elivital® praksa, reiki, kanaliziranje, meditacije in dogodki za ženske na Ptuju. Prostor, kjer se ustaviš in se ponovno povežeš s svojim telesom in energijo.">
+  <meta name="twitter:image" content="https://studiospirital.si/images/hero-elina.jpg">
   <link rel="canonical" href="https://studiospirital.si/">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
@@ -39,12 +39,14 @@
  "@context":"https://schema.org",
  "@type":"HealthAndBeautyBusiness",
  "@id":"https://studiospirital.si/#business",
- "name":"Studio Spirital",
- "description":"Masaže, reiki, meditacije, kanaliziranje, vadbe in plesne delavnice na Ptuju. Studio Spirital je prostor za sprostitev telesa in duha – pridruži se.",
+ "name":"Spirital",
+ "alternateName":"Studio Spirital",
+ "description":"Elivital® praksa, reiki, kanaliziranje, meditacije in dogodki za ženske na Ptuju.",
  "url":"https://studiospirital.si",
  "telephone":"+38640301055",
- "image":"https://studiospirital.si/images/hero.jpg",
+ "image":"https://studiospirital.si/images/hero-elina.jpg",
  "priceRange":"€€",
+ "founder":{"@type":"Person","name":"Elina Zdovc","url":"https://studiospirital.si/elina.html"},
  "address":{
    "@type":"PostalAddress",
    "streetAddress":"Osojnikova cesta 3",
@@ -65,157 +67,174 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">STUDIO SPIRITAL</a>
-    <ul class="nav-links">
-      <li><a href="#o-nas" data-sl="O nas" data-en="About">O nas</a></li>
-      <li><a href="#storitve" data-sl="Storitve" data-en="Services">Storitve</a></li>
-      <li><a href="#cenik" data-sl="Cenik" data-en="Prices">Cenik</a></li>
-      <li><a href="#ekipa" data-sl="Ekipa" data-en="Team">Ekipa</a></li>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">SPIRITAL</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" aria-current="page" data-sl="Domov" data-en="Home">Domov</a></li>
+      <li><a href="elina.html" data-sl="O meni" data-en="About me">O meni</a></li>
+      <li class="nav-has-sub">
+        <a href="index.html#storitve" data-sl="Storitve" data-en="Services">Storitve</a>
+        <ul class="nav-sub">
+          <li><a href="storitve/elivital.html" data-sl="Elivital®" data-en="Elivital®">Elivital®</a></li>
+          <li><a href="storitve/meditacije.html" data-sl="Meditacije" data-en="Meditations">Meditacije</a></li>
+          <li><a href="storitve/reiki.html" data-sl="Reiki" data-en="Reiki">Reiki</a></li>
+          <li><a href="storitve/kanaliziranje.html" data-sl="Kanaliziranje" data-en="Channeling">Kanaliziranje</a></li>
+        </ul>
+      </li>
+      <li><a href="dogodki.html" data-sl="Dogodki" data-en="Events">Dogodki</a></li>
+      <li><a href="index.html#cenik" data-sl="Cenik" data-en="Prices">Cenik</a></li>
+      <li><a href="#kontakt" data-sl="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li class="nav-lang"><button class="lang-toggle" id="langToggle">SL | EN</button></li>
     </ul>
-    <button class="lang-toggle" id="langToggle">SL | EN</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Meni" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero--photo">
     <div class="hero-bg">
-      <img src="images/hero.webp" width="1446" height="1800" fetchpriority="high" alt="Studio Spirital">
+      <img src="images/hero-elina.webp" width="1448" height="1086" fetchpriority="high" alt="Elina sedi na blazini pod drevesom v parku">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-location" data-sl="Ptuj, Slovenija" data-en="Ptuj, Slovenia">Ptuj, Slovenija</p>
-      <h1 class="hero-title">Studio Spirital</h1>
-      <p class="hero-tagline" data-sl="Masaže, Reiki, Vadba, Meditacije, Plesne delavnice" data-en="Massages, Reiki, Exercise, Meditations, Dance Workshops">Masaže, Reiki, Vadba, Meditacije, Plesne delavnice</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="o-nas" class="section section--white">
-    <h2 class="section-label" data-sl="O studiu" data-en="About the studio">O studiu</h2>
-    <div class="about-inner">
-      <div>
-        <h2 class="about-heading">
-          <span data-sl="Prostor, kjer se srečata telo in duša" data-en="A space where body and soul meet">Prostor, kjer se srečata telo in duša</span>
-        </h2>
-        <p class="about-text" data-lang="sl">Studio Spirital je prostor, ki sta ga ustvarili dve ženski z enim skupnim namenom — podpirati ljudi na poti k večjemu stiku s seboj. Skupaj ustvarjava prostor, kjer se srečujejo gibanje in mir, telo in duša, intuicija in prisotnost.</p>
-        <p class="about-text" data-lang="en" hidden>Studio Spirital is a space created by two women with one shared purpose — supporting people on their path to a deeper connection with themselves. Together we create a space where movement and stillness, body and soul, intuition and presence meet.</p>
+      <p class="hero-location hero-location--services" data-sl="Elivital® praksa · Reiki · Kanaliziranje · Meditacije · Dogodki" data-en="Elivital® practice · Reiki · Channeling · Meditations · Events">Elivital® praksa · Reiki · Kanaliziranje · Meditacije · Dogodki</p>
+      <h1 class="hero-title">Spirital</h1>
+      <p class="hero-tagline" data-sl="Ustavi se. Začuti se. Vrni se k sebi." data-en="Pause. Feel yourself. Return to yourself.">Ustavi se. Začuti se. Vrni se k sebi.</p>
+      <p class="hero-sub" data-sl="Meditacije, energijske prakse in dogodki za ženske, ki si želijo več stika s svojim telesom, notranjim svetom in svojo energijo." data-en="Meditations, energy practices and events for women who long for a deeper connection with their body, their inner world and their energy.">Meditacije, energijske prakse in dogodki za ženske, ki si želijo več stika s svojim telesom, notranjim svetom in svojo energijo.</p>
+      <div class="hero-actions">
+        <a href="#spirital" class="btn-pill" data-sl="Spoznaj Spirital" data-en="Discover Spirital">Spoznaj Spirital</a>
+        <a href="#storitve" class="btn-pill btn-pill--ghost" data-sl="Poglej storitve" data-en="See services">Poglej storitve</a>
       </div>
-      <img src="images/studio.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Notranjost studia Spirital z blazinami za jogo in počivalnico" class="about-image gallery-img">
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- WHY SPIRITAL -->
+  <section id="spirital" class="section section--white">
+    <h2 class="section-label" data-sl="Prostor zate. Za dušo in telo." data-en="A space for you. For soul and body.">Prostor zate. Za dušo in telo.</h2>
+    <div class="about-inner">
+      <div class="prose" data-lang="sl">
+        <p class="prose-lead">Morda ne potrebuješ še ene stvari na svojem seznamu.<br>Morda potrebuješ trenutek zase.</p>
+        <p>V vsakdanjem tempu hitro izgubimo stik s sabo.</p>
+        <p class="prose-lines">S svojim telesom.<br>S svojim občutkom.<br>S svojo energijo.<br>S tem, kar si v resnici želimo.</p>
+        <p>Spirital je nastal kot povabilo, da se za trenutek ustaviš. Da prisluhneš sebi. In da ponovno vzpostaviš stik s tistim delom sebe, ki je v vsakodnevnem hitenju pogosto potisnjen na stran.</p>
+      </div>
+      <div class="prose" data-lang="en" hidden>
+        <p class="prose-lead">Maybe you don't need one more thing on your list.<br>Maybe you need a moment for yourself.</p>
+        <p>In the pace of everyday life, we quickly lose touch with ourselves.</p>
+        <p class="prose-lines">With our body.<br>With our feelings.<br>With our energy.<br>With what we truly want.</p>
+        <p>Spirital was born as an invitation to pause for a moment. To listen to yourself. And to reconnect with the part of you that so often gets pushed aside in the everyday rush.</p>
+      </div>
+      <img src="images/studio.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Notranjost prostora Spirital z blazinami za jogo in počivalnico" class="about-image gallery-img">
+    </div>
+  </section>
+
+  <!-- WHERE TO START -->
   <section id="storitve" class="section section--cream">
-    <h2 class="section-label" data-sl="Naše storitve" data-en="Our services">Naše storitve</h2>
-    <div class="services-grid">
-      <a href="storitve/masaze.html" class="service-card">
-        <div class="service-icon">👐</div>
-        <h3 class="service-name" data-sl="Masaže" data-en="Massages">Masaže</h3>
-        <div class="service-desc" data-sl="Telo & obraz" data-en="Body & face">Telo & obraz</div>
-      </a>
-      <a href="storitve/reiki.html" class="service-card">
-        <div class="service-icon">✨</div>
-        <h3 class="service-name">Reiki</h3>
-        <div class="service-desc" data-sl="Sprostitev in umiritev" data-en="Relaxation and stillness">Sprostitev in umiritev</div>
-      </a>
-      <a href="storitve/elivital.html" class="service-card">
-        <div class="service-icon">🌿</div>
-        <h3 class="service-name">Elivital®</h3>
-        <div class="service-desc" data-sl="Joga + pilates + energija" data-en="Yoga + pilates + energy">Joga + pilates + energija</div>
-      </a>
-      <a href="storitve/meditacije.html" class="service-card">
-        <div class="service-icon">🧘</div>
-        <h3 class="service-name" data-sl="Meditacije" data-en="Meditations">Meditacije</h3>
-        <div class="service-desc" data-sl="Notranji mir" data-en="Inner peace">Notranji mir</div>
-      </a>
-      <a href="storitve/ples.html" class="service-card">
-        <div class="service-icon">💃</div>
-        <h3 class="service-name" data-sl="Ples" data-en="Dance">Ples</h3>
-        <div class="service-desc" data-sl="Latin & intuitivni ples" data-en="Latin & intuitive dance">Latin & intuitivni ples</div>
-      </a>
-      <a href="storitve/kanaliziranje.html" class="service-card">
-        <div class="service-icon">🌙</div>
-        <h3 class="service-name" data-sl="Kanaliziranje" data-en="Channeling">Kanaliziranje</h3>
-        <div class="service-desc" data-sl="Individualne seje" data-en="Individual sessions">Individualne seje</div>
-      </a>
+    <h2 class="section-label" data-sl="Kaj potrebuješ danes?" data-en="What do you need today?">Kaj potrebuješ danes?</h2>
+    <div class="path-grid">
+      <div class="path-card">
+        <p class="path-wish"><span class="path-wish-icon" aria-hidden="true">🌿</span> <span data-sl="Želim se povezati s svojim telesom" data-en="I want to connect with my body">Želim se povezati s svojim telesom</span></p>
+        <h3 class="path-name">Elivital®</h3>
+        <p class="path-desc" data-sl="Gibanje, dih, prisotnost in energija v praksi, ki te spodbuja, da prebudiš hvaležnost in ljubezen do svojega telesa." data-en="Movement, breath, presence and energy in a practice that invites you to awaken gratitude and love for your body.">Gibanje, dih, prisotnost in energija v praksi, ki te spodbuja, da prebudiš hvaležnost in ljubezen do svojega telesa.</p>
+        <div class="path-actions">
+          <a href="storitve/elivital.html" class="btn-pill" data-sl="Spoznaj Elivital®" data-en="Discover Elivital®">Spoznaj Elivital®</a>
+          <a href="https://form.lime-booking.com/elina-skupinski" target="_blank" rel="noopener" class="btn-pill btn-pill--outline" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
+        </div>
+      </div>
+      <div class="path-card">
+        <p class="path-wish"><span class="path-wish-icon" aria-hidden="true">🕯️</span> <span data-sl="Želim se umiriti" data-en="I want to find calm">Želim se umiriti</span></p>
+        <h3 class="path-name" data-sl="Meditacije" data-en="Meditations">Meditacije</h3>
+        <p class="path-desc" data-sl="Vodene meditacije za umirjanje, prisotnost, notranji stik in raziskovanje svojega dušnega namena." data-en="Guided meditations for calm, presence, inner connection and exploring your soul's purpose.">Vodene meditacije za umirjanje, prisotnost, notranji stik in raziskovanje svojega dušnega namena.</p>
+        <div class="path-actions">
+          <a href="storitve/meditacije.html" class="btn-pill" data-sl="Poglej meditacije" data-en="See meditations">Poglej meditacije</a>
+          <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Meditacija" class="btn-pill btn-pill--outline" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
+        </div>
+      </div>
+      <div class="path-card">
+        <p class="path-wish"><span class="path-wish-icon" aria-hidden="true">✨</span> <span data-sl="Želim energijsko podporo" data-en="I want energetic support">Želim energijsko podporo</span></p>
+        <h3 class="path-name">Reiki</h3>
+        <p class="path-desc" data-sl="Nežna energijska praksa, namenjena sprostitvi, čiščenju blokad iz telesa in ustvarjanju pretoka." data-en="A gentle energy practice for relaxation, clearing blockages from the body and creating flow.">Nežna energijska praksa, namenjena sprostitvi, čiščenju blokad iz telesa in ustvarjanju pretoka.</p>
+        <div class="path-actions">
+          <a href="storitve/reiki.html" class="btn-pill" data-sl="Spoznaj reiki" data-en="Discover reiki">Spoznaj reiki</a>
+          <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Reiki" class="btn-pill btn-pill--outline" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
+        </div>
+      </div>
+      <div class="path-card">
+        <p class="path-wish"><span class="path-wish-icon" aria-hidden="true">🔮</span> <span data-sl="Želim vpogled v svojo dušo" data-en="I want insight into my soul">Želim vpogled v svojo dušo</span></p>
+        <h3 class="path-name" data-sl="Kanaliziranje" data-en="Channeling">Kanaliziranje</h3>
+        <p class="path-desc" data-sl="Individualna izkušnja, namenjena vprašanjem, vpogledom in raziskovanju tega, kar se trenutno odpira v tvojem življenju ali se je dogajalo v preteklem življenju in močno vpliva nate v sedanjosti." data-en="An individual experience for your questions, insights and exploring what is opening up in your life right now — or what happened in a past life and still strongly affects you in the present.">Individualna izkušnja, namenjena vprašanjem, vpogledom in raziskovanju tega, kar se trenutno odpira v tvojem življenju ali se je dogajalo v preteklem življenju in močno vpliva nate v sedanjosti.</p>
+        <div class="path-actions">
+          <a href="storitve/kanaliziranje.html" class="btn-pill" data-sl="Več o kanaliziranju" data-en="More about channeling">Več o kanaliziranju</a>
+          <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Kanaliziranje" class="btn-pill btn-pill--outline" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
+        </div>
+      </div>
+      <div class="path-card">
+        <p class="path-wish"><span class="path-wish-icon" aria-hidden="true">🌙</span> <span data-sl="Želim doživeti nekaj posebnega" data-en="I want to experience something special">Želim doživeti nekaj posebnega</span></p>
+        <h3 class="path-name" data-sl="Dogodki" data-en="Events">Dogodki</h3>
+        <p class="path-desc" data-sl="Meditacije, ženski krogi, delavnice, retreati in druge izkušnje, ki jih ustvarjam v živo." data-en="Meditations, women's circles, workshops, retreats and other experiences I create live.">Meditacije, ženski krogi, delavnice, retreati in druge izkušnje, ki jih ustvarjam v živo.</p>
+        <div class="path-actions">
+          <a href="dogodki.html" class="btn-pill" data-sl="Poglej dogodke" data-en="See events">Poglej dogodke</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- TEAM -->
-  <section id="ekipa" class="section section--white">
-    <h2 class="section-label" data-sl="Spoznaj naju" data-en="Meet us">Spoznaj naju</h2>
-    <div class="team-grid">
-      <a href="elina.html" class="team-card">
-        <img src="images/elina-portrait.webp" width="600" height="1066" loading="lazy" decoding="async" alt="Elina" class="team-photo">
-        <h3 class="team-name">Elina</h3>
-        <div class="team-specialties" data-sl="Reiki · Meditacije · Kanaliziranje · Vadba" data-en="Reiki · Meditations · Channeling · Movement">Reiki · Meditacije · Kanaliziranje · Vadba</div>
-        <span class="btn-pill" data-sl="SPOZNAJ →" data-en="MEET →">SPOZNAJ →</span>
-      </a>
-      <a href="maja.html" class="team-card">
-        <img src="images/maja-portrait.webp" width="720" height="1280" loading="lazy" decoding="async" alt="Maja" class="team-photo">
-        <h3 class="team-name">Maja</h3>
-        <div class="team-specialties" data-sl="Masaže · Ples" data-en="Massages · Dance">Masaže · Ples</div>
-        <span class="btn-pill" data-sl="SPOZNAJ →" data-en="MEET →">SPOZNAJ →</span>
-      </a>
+  <!-- ABOUT ME (short) -->
+  <section id="o-meni" class="section section--white">
+    <h2 class="section-label" data-sl="O meni" data-en="About me">O meni</h2>
+    <div class="about-inner">
+      <div class="prose" data-lang="sl">
+        <p class="prose-lead">Moje ime je Elina in verjamem, da imamo v sebi veliko več odgovorov, kot si jih pogosto dovolimo slišati.</p>
+        <p>Moja pot me je pripeljala do raziskovanja telesa, energije, meditacije, intuicije in različnih načinov notranjega dela.</p>
+        <p>Danes skozi Spirital ustvarjam izkušnje, ki človeka povabijo nazaj k sebi.</p>
+        <p class="prose-lines">Ne učim te, kdo moraš postati.<br>Ustvarjam prostor, v katerem lahko lažje začutiš, kdo že si.</p>
+        <a href="elina.html" class="btn-pill">Spoznaj mojo zgodbo</a>
+      </div>
+      <div class="prose" data-lang="en" hidden>
+        <p class="prose-lead">My name is Elina, and I believe we carry far more answers within us than we usually allow ourselves to hear.</p>
+        <p>My path has led me to explore the body, energy, meditation, intuition and many forms of inner work.</p>
+        <p>Today, through Spirital, I create experiences that invite people back to themselves.</p>
+        <p class="prose-lines">I don't teach you who you must become.<br>I create a space where you can more easily feel who you already are.</p>
+        <a href="elina.html" class="btn-pill">Read my story</a>
+      </div>
+      <img src="images/elina-portrait.webp" width="600" height="1066" loading="lazy" decoding="async" alt="Elina med meditacijo v prostoru Spirital" class="about-image gallery-img">
     </div>
   </section>
 
-  <!-- SERVICES & PRICES -->
+  <!-- TESTIMONIALS — skrito, dokler naročnica ne pošlje mnenj strank. Odkomentiraj in vstavi besedila.
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="Mnenja strank" data-en="Testimonials">Mnenja strank</h2>
+    <p class="section-heading" data-sl="Besede žensk, ki so bile tukaj." data-en="Words from women who have been here.">Besede žensk, ki so bile tukaj.</p>
+    <div class="quotes-grid">
+      <figure class="quote-card">
+        <blockquote class="quote-text">»…«</blockquote>
+        <figcaption class="quote-name">Ime</figcaption>
+      </figure>
+      <figure class="quote-card">
+        <blockquote class="quote-text">»…«</blockquote>
+        <figcaption class="quote-name">Ime</figcaption>
+      </figure>
+      <figure class="quote-card">
+        <blockquote class="quote-text">»…«</blockquote>
+        <figcaption class="quote-name">Ime</figcaption>
+      </figure>
+    </div>
+  </section>
+  -->
+
+  <!-- PRICES -->
   <section id="cenik" class="section section--cream">
-    <h2 class="section-label" data-sl="Storitve & cenik" data-en="Services & prices">Storitve & cenik</h2>
+    <h2 class="section-label" data-sl="Cenik" data-en="Prices">Cenik</h2>
     <div class="price-groups">
-      <a href="storitve/masaze.html" class="price-group">
-        <h3 class="price-group-title" data-sl="Masaže" data-en="Massages">Masaže</h3>
-        <div class="price-group-detail" data-sl="Sproščanje napetosti telesa in obraza" data-en="Releasing tension in body and face">Sproščanje napetosti telesa in obraza</div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Masaža celega telesa" data-en="Full body massage">Masaža celega telesa</span>
-          <span class="price-row-value">45 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Masaža hrbta" data-en="Back massage">Masaža hrbta</span>
-          <span class="price-row-value">30 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Glow masaža obraza" data-en="Glow facial massage">Glow masaža obraza</span>
-          <span class="price-row-value">40 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Anticelulitna masaža" data-en="Anti-cellulite massage">Anticelulitna masaža</span>
-          <span class="price-row-value">25 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Hrbet + obraz" data-en="Back + face">Hrbet + obraz</span>
-          <span class="price-row-value">60 €</span>
-        </div>
-      </a>
-
-      <a href="storitve/reiki.html" class="price-group">
-        <h3 class="price-group-title" data-sl="Reiki seansa" data-en="Reiki session">Reiki seansa</h3>
-        <div class="price-group-detail" data-sl="Sprostitev in umiritev" data-en="Relaxation and stillness">Sprostitev in umiritev</div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Prvi obisk" data-en="First visit">Prvi obisk</span>
-          <span class="price-row-value">60 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Vsaka naslednja seansa" data-en="Each following session">Vsaka naslednja seansa</span>
-          <span class="price-row-value">45 €</span>
-        </div>
-      </a>
-
       <a href="storitve/elivital.html" class="price-group">
         <h3 class="price-group-title" data-sl="Elivital® praksa" data-en="Elivital® practice">Elivital® praksa</h3>
-        <div class="price-group-detail" data-sl="Joga + pilates + energija · Ptuj mestni park, pon & čet" data-en="Yoga + pilates + energy · Ptuj city park, Mon & Thu">Joga + pilates + energija · Ptuj mestni park, pon & čet</div>
+        <div class="price-group-detail" data-sl="Gibanje, dih in energija · 45 min · Ptuj, mestni park ali Studio Spirital" data-en="Movement, breath and energy · 45 min · Ptuj city park or Studio Spirital">Gibanje, dih in energija · 45 min · Ptuj, mestni park ali Studio Spirital</div>
         <div class="price-row">
           <span class="price-row-label" data-sl="Prvi obisk" data-en="First visit">Prvi obisk</span>
           <span class="price-row-value price-row-value--free" data-sl="Brezplačno" data-en="Free">Brezplačno</span>
         </div>
         <div class="price-row">
-          <span class="price-row-label" data-sl="Vsak naslednji obisk" data-en="Each following visit">Vsak naslednji obisk</span>
-          <span class="price-row-value">15 €</span>
-        </div>
-        <div class="price-row">
-          <span class="price-row-label" data-sl="Mesečni paket (4 obiski)" data-en="Monthly package (4 visits)">Mesečni paket (4 obiski)</span>
-          <span class="price-row-value">45 €</span>
+          <span class="price-row-label" data-sl="Mesečna vadba" data-en="Monthly practice">Mesečna vadba</span>
+          <span class="price-row-value" data-sl="70 € / mesec" data-en="€70 / month">70 € / mesec</span>
         </div>
       </a>
 
@@ -232,12 +251,12 @@
         </div>
       </a>
 
-      <a href="storitve/ples.html" class="price-group">
-        <h3 class="price-group-title" data-sl="Ples" data-en="Dance">Ples</h3>
-        <div class="price-group-detail" data-sl="Latinski in intuitivni ples" data-en="Latin and intuitive dance">Latinski in intuitivni ples</div>
+      <a href="storitve/reiki.html" class="price-group">
+        <h3 class="price-group-title" data-sl="Reiki terapija" data-en="Reiki therapy">Reiki terapija</h3>
+        <div class="price-group-detail" data-sl="Individualna terapija · 60 min · Studio Spirital" data-en="Individual therapy · 60 min · Studio Spirital">Individualna terapija · 60 min · Studio Spirital</div>
         <div class="price-row">
-          <span class="price-row-label" data-sl="Skupinske delavnice" data-en="Group workshops">Skupinske delavnice</span>
-          <span class="price-row-value price-row-value--free" data-sl="Brezplačno" data-en="Free">Brezplačno</span>
+          <span class="price-row-label" data-sl="Reiki terapija (60 min)" data-en="Reiki therapy (60 min)">Reiki terapija (60 min)</span>
+          <span class="price-row-value">60 €</span>
         </div>
       </a>
 
@@ -256,24 +275,42 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <!-- CLOSING CTA -->
+  <div class="contact-section">
+    <h2 class="contact-title" data-sl="Morda je to tvoj znak, da se za trenutek ustaviš." data-en="Maybe this is your sign to pause for a moment.">Morda je to tvoj znak, da se za trenutek ustaviš.</h2>
+    <p class="contact-subtitle" data-sl="Izberi izkušnjo, ki te trenutno najbolj kliče, in naredi prvi korak." data-en="Choose the experience that calls you most right now, and take the first step.">Izberi izkušnjo, ki te trenutno najbolj kliče, in naredi prvi korak.</p>
+    <div class="contact-actions">
+      <a href="#storitve" class="contact-btn contact-btn--outline">
+        <span>🌿</span>
+        <span data-sl="Poglej storitve" data-en="See services">Poglej storitve</span>
+      </a>
+      <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20termina" class="contact-btn">
+        <span>📅</span>
+        <span data-sl="Rezerviraj termin" data-en="Book a session">Rezerviraj termin</span>
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer" id="kontakt">
     <div>
-      <div class="footer-brand">STUDIO SPIRITAL</div>
-      <div class="footer-location" data-sl="Osojnikova cesta 3, Ptuj" data-en="Osojnikova cesta 3, Ptuj, Slovenia">Osojnikova cesta 3, Ptuj</div>
+      <div class="footer-brand">SPIRITAL</div>
+      <div class="footer-location" data-sl="Meditacije in organizacija dogodkov" data-en="Meditations and event organisation">Meditacije in organizacija dogodkov</div>
+      <div class="footer-location">Elina Zdovc s.p.</div>
+      <div class="footer-location" data-sl="Studio: Osojnikova cesta 3, Ptuj" data-en="Studio: Osojnikova cesta 3, Ptuj, Slovenia">Studio: Osojnikova cesta 3, Ptuj</div>
       <div class="footer-legal"><a href="politika-zasebnosti.html" data-sl="Politika zasebnosti" data-en="Privacy Policy">Politika zasebnosti</a></div>
     </div>
     <div class="footer-contact">
-      <div data-sl="Pokličite nas:" data-en="Call us:">Pokličite nas:</div>
-      <div class="footer-phone"><a href="tel:+38640301055">Elina: 040 301 055</a></div>
-      <div class="footer-phone"><a href="tel:+38651694341">Maja: 051 694 341</a></div>
+      <div data-sl="Pokliči me:" data-en="Call me:">Pokliči me:</div>
+      <div class="footer-phone"><a href="tel:+38640301055">040 301 055</a></div>
+      <div class="footer-contact-label" data-sl="Piši mi:" data-en="Write to me:">Piši mi:</div>
+      <div class="footer-email"><a href="mailto:info.spirital@gmail.com">info.spirital@gmail.com</a></div>
     </div>
     <div class="footer-links">
       <a href="https://www.instagram.com/studiospirital/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.16-.56.55-.9 1.11-1.16 1.77-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.16 1.77.55.56 1.11.9 1.77 1.16.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.16.56-.55.9-1.11 1.16-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.16-1.77-.55-.56-1.11-.9-1.77-1.16-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.85.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.87.34 1.85.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.85-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.87.3-1.85.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.85-.34-.47-.18-.8-.4-1.15-.75-.35-.35-.57-.68-.75-1.15-.14-.36-.3-.87-.34-1.85C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.85.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.87-.3 1.85-.34C9.01 3.81 9.33 3.8 12 3.8zm0 3.07a5.13 5.13 0 1 0 0 10.26 5.13 5.13 0 0 0 0-10.26zm0 8.46a3.33 3.33 0 1 1 0-6.66 3.33 3.33 0 0 1 0 6.66zm5.34-8.66a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>Instagram</a>
       <a href="https://www.facebook.com/profile.php?id=61587043018835" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>Facebook</a>
     </div>
-    <div class="footer-legalinfo" data-lang="sl">Spirital, meditacije in organizacija dogodkov, Elina Zdovc s.p. — sedež: Strmec pri Ormožu 27, 2274 Velika Nedelja · matična št.: 7467664000 · davčna št.: 70947341<br>Izobraževalne in druge storitve, Maja Zebec s.p. — sedež: Zabovci 15A, 2281 Markovci · matična št.: 9487158000 · davčna št.: 83364528<br>Studio: Osojnikova cesta 3, 2250 Ptuj · Vse cene so v EUR. DDV ni obračunan v skladu s 1. odstavkom 94. člena ZDDV-1.</div>
-    <div class="footer-legalinfo" data-lang="en" hidden>Spirital, meditacije in organizacija dogodkov, Elina Zdovc s.p. — registered seat: Strmec pri Ormožu 27, 2274 Velika Nedelja, Slovenia · reg. no.: 7467664000 · tax no.: 70947341<br>Izobraževalne in druge storitve, Maja Zebec s.p. — registered seat: Zabovci 15A, 2281 Markovci, Slovenia · reg. no.: 9487158000 · tax no.: 83364528<br>Studio: Osojnikova cesta 3, 2250 Ptuj, Slovenia · All prices are in EUR. VAT is not charged pursuant to Art. 94(1) of the Slovenian VAT Act (ZDDV-1).</div>
+    <div class="footer-legalinfo" data-lang="sl">Spirital, meditacije in organizacija dogodkov, Elina Zdovc s.p. — sedež: Strmec pri Ormožu 27, 2274 Velika Nedelja · matična št.: 7467664000 · davčna št.: 70947341<br>Studio: Osojnikova cesta 3, 2250 Ptuj · Vse cene so v EUR. DDV ni obračunan v skladu s 1. odstavkom 94. člena ZDDV-1.</div>
+    <div class="footer-legalinfo" data-lang="en" hidden>Spirital, meditacije in organizacija dogodkov, Elina Zdovc s.p. — registered seat: Strmec pri Ormožu 27, 2274 Velika Nedelja, Slovenia · reg. no.: 7467664000 · tax no.: 70947341<br>Studio: Osojnikova cesta 3, 2250 Ptuj, Slovenia · All prices are in EUR. VAT is not charged pursuant to Art. 94(1) of the Slovenian VAT Act (ZDDV-1).</div>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -282,6 +319,7 @@
   </div>
 
   <script src="js/lang.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/consent.js"></script>
   <script src="js/lightbox.js"></script>
 </body>

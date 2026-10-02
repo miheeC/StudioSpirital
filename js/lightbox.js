@@ -1,5 +1,6 @@
 (function () {
   var lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
   var lightboxImg = lightbox.querySelector('.lightbox-img');
 
   document.querySelectorAll('.gallery-img').forEach(function (img) {

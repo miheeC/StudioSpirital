@@ -38,7 +38,7 @@
     banner.className = 'cookie-banner';
     banner.innerHTML =
       '<p class="cookie-banner-text">' +
-      '<span data-sl="Za anonimizirano statistiko obiska uporabljamo Google Analytics. Piškotke naložimo šele, ko jih odobrite." data-en="We use Google Analytics for anonymised visit statistics. Cookies are only set once you agree.">Za anonimizirano statistiko obiska uporabljamo Google Analytics. Piškotke naložimo šele, ko jih odobrite.</span> ' +
+      '<span data-sl="Stran za anonimizirano statistiko obiska uporablja Google Analytics. Piškotki se naložijo šele, ko jih odobrite." data-en="This site uses Google Analytics for anonymised visit statistics. Cookies are only set once you agree.">Stran za anonimizirano statistiko obiska uporablja Google Analytics. Piškotki se naložijo šele, ko jih odobrite.</span> ' +
       '<a href="' + privacyHref() + '" data-sl="Politika zasebnosti" data-en="Privacy Policy">Politika zasebnosti</a>' +
       '</p>' +
       '<div class="cookie-banner-actions">' +
@@ -62,14 +62,25 @@
     });
   }
 
+  // The banner is fixed to the bottom of the viewport; reserve its height
+  // under the footer so the footer's last lines can scroll above it.
+  function updateOffset() {
+    var h = banner && !banner.hidden ? banner.offsetHeight + 32 : 0;
+    document.documentElement.style.setProperty('--cookie-offset', h + 'px');
+  }
+
   function showBanner() {
     if (!banner) buildBanner();
     banner.hidden = false;
+    updateOffset();
   }
 
   function hideBanner() {
     if (banner) banner.hidden = true;
+    updateOffset();
   }
+
+  window.addEventListener('resize', updateOffset);
 
   function addSettingsLink() {
     var legal = document.querySelector('.footer-legal');
