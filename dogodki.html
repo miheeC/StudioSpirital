@@ -2,18 +2,31 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) — Consent Mode: no analytics cookies are set until the visitor accepts (see js/consent.js) -->
+  <!-- Google tag (gtag.js) — loaded only after the visitor accepts analytics (see js/consent.js); nothing is sent to Google before that -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     var ssConsentStored = 'denied';
     try { if (localStorage.getItem('ss-consent') === 'granted') ssConsentStored = 'granted'; } catch (e) {}
-    gtag('consent', 'default', { 'analytics_storage': ssConsentStored });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NQNE734RS"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-9NQNE734RS');
+    gtag('consent', 'default', {
+      'analytics_storage': ssConsentStored,
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+    // js/config are queued only once consent is granted, so GA's first hit
+    // already carries the granted state (also when accepting mid-page)
+    window.ssLoadGtag = function () {
+      if (window.ssGtagLoaded) return;
+      window.ssGtagLoaded = true;
+      gtag('js', new Date());
+      gtag('config', 'G-9NQNE734RS');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9NQNE734RS';
+      document.head.appendChild(s);
+    };
+    if (ssConsentStored === 'granted') ssLoadGtag();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dogodki — meditacije, ženski krogi, delavnice | Spirital Ptuj</title>

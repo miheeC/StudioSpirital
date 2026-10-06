@@ -2,6 +2,7 @@
 (function () {
   var CONSENT_KEY = 'ss-consent';
   var LANG_KEY = 'ss-lang';
+  var GA_ID = 'G-9NQNE734RS';
 
   function currentLang() {
     try {
@@ -24,11 +25,39 @@
       // Storage can throw (e.g. Safari Private Browsing, some in-app browsers) —
       // the banner must still close even if the choice can't be persisted.
     }
+    // Fully switch GA off for the rest of this page view when declined
+    window['ga-disable-' + GA_ID] = !granted;
     if (window.gtag) {
       try {
         gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
       } catch (e) {}
     }
+    if (granted) {
+      // gtag.js is only fetched once the visitor agrees (see the snippet in <head>)
+      if (window.ssLoadGtag) window.ssLoadGtag();
+    } else {
+      deleteGaCookies();
+    }
+  }
+
+  // Withdrawing consent must also remove cookies set while it was granted.
+  // GA sets them on the top-level domain (e.g. .studiospirital.si), so try
+  // every domain variant the cookie could live on.
+  function deleteGaCookies() {
+    var host = location.hostname;
+    var parts = host.split('.');
+    var domains = ['', host, '.' + host];
+    for (var i = 1; i < parts.length - 1; i++) {
+      domains.push('.' + parts.slice(i).join('.'));
+    }
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (name !== '_ga' && name.indexOf('_ga_') !== 0) return;
+      domains.forEach(function (d) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' +
+          (d ? '; domain=' + d : '');
+      });
+    });
   }
 
   var banner;

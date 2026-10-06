@@ -2,33 +2,46 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) — Consent Mode: no analytics cookies are set until the visitor accepts (see js/consent.js) -->
+  <!-- Google tag (gtag.js) — loaded only after the visitor accepts analytics (see js/consent.js); nothing is sent to Google before that -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     var ssConsentStored = 'denied';
     try { if (localStorage.getItem('ss-consent') === 'granted') ssConsentStored = 'granted'; } catch (e) {}
-    gtag('consent', 'default', { 'analytics_storage': ssConsentStored });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NQNE734RS"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-9NQNE734RS');
+    gtag('consent', 'default', {
+      'analytics_storage': ssConsentStored,
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+    // js/config are queued only once consent is granted, so GA's first hit
+    // already carries the granted state (also when accepting mid-page)
+    window.ssLoadGtag = function () {
+      if (window.ssGtagLoaded) return;
+      window.ssGtagLoaded = true;
+      gtag('js', new Date());
+      gtag('config', 'G-9NQNE734RS');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9NQNE734RS';
+      document.head.appendChild(s);
+    };
+    if (ssConsentStored === 'granted') ssLoadGtag();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kanaliziranje Ptuj — vpogled v svojo dušo | Spirital</title>
-  <meta name="description" content="Individualno kanaliziranje na Ptuju z medijko Elino — za tvoja vprašanja, vpoglede in to, kar se odpira v tvojem življenju. Rezerviraj termin po e-pošti.">
+  <meta name="description" content="Kanaliziranje na Ptuju ali preko video klica z licenciranim medijem Celestial Inspiration — vpogled v tvojo dušo, življenjsko pot in pretekla življenja. 45 min, 88 €.">
   <meta property="og:title" content="Kanaliziranje Ptuj — vpogled v svojo dušo | Spirital">
-  <meta property="og:description" content="Individualno kanaliziranje na Ptuju z medijko Elino — za tvoja vprašanja, vpoglede in to, kar se odpira v tvojem življenju. Rezerviraj termin po e-pošti.">
-  <meta property="og:image" content="https://studiospirital.si/images/kanaliziranje.jpg">
+  <meta property="og:description" content="Kanaliziranje na Ptuju ali preko video klica z licenciranim medijem Celestial Inspiration — vpogled v tvojo dušo, življenjsko pot in pretekla življenja. 45 min, 88 €.">
+  <meta property="og:image" content="https://studiospirital.si/images/kanaliziranje3.jpg">
   <meta property="og:url" content="https://studiospirital.si/storitve/kanaliziranje.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sl_SI">
   <meta property="og:site_name" content="Spirital">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kanaliziranje Ptuj — vpogled v svojo dušo | Spirital">
-  <meta name="twitter:description" content="Individualno kanaliziranje na Ptuju z medijko Elino — za tvoja vprašanja, vpoglede in to, kar se odpira v tvojem življenju. Rezerviraj termin po e-pošti.">
-  <meta name="twitter:image" content="https://studiospirital.si/images/kanaliziranje.jpg">
+  <meta name="twitter:description" content="Kanaliziranje na Ptuju ali preko video klica z licenciranim medijem Celestial Inspiration — vpogled v tvojo dušo, življenjsko pot in pretekla življenja. 45 min, 88 €.">
+  <meta name="twitter:image" content="https://studiospirital.si/images/kanaliziranje3.jpg">
   <link rel="canonical" href="https://studiospirital.si/storitve/kanaliziranje.html">
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="shortcut icon" href="../favicon.ico">
@@ -36,29 +49,115 @@
   <script src="../js/viewport.js"></script>
   <script type="application/ld+json">
 {
- "@context":"https://schema.org",
- "@graph":[
+ "@context": "https://schema.org",
+ "@graph": [
   {
-   "@type":"Service",
-   "@id":"https://studiospirital.si/storitve/kanaliziranje.html#service",
-   "name":"Kanaliziranje",
-   "serviceType":"Duhovne seje",
-   "description":"Individualno kanaliziranje na Ptuju z medijko Elino — za tvoja vprašanja, vpoglede in to, kar se odpira v tvojem življenju. Rezerviraj termin po e-pošti.",
-   "url":"https://studiospirital.si/storitve/kanaliziranje.html",
-   "image":"https://studiospirital.si/images/kanaliziranje.jpg",
-   "areaServed":{"@type":"City","name":"Ptuj"},
-   "provider":{"@type":"HealthAndBeautyBusiness","@id":"https://studiospirital.si/#business","name":"Spirital","url":"https://studiospirital.si/","telephone":"+38640301055"},
-   "offers":[
-    {"@type":"Offer","name":"Osebna seja do 45 min","price":"88","priceCurrency":"EUR"},
-    {"@type":"Offer","name":"Odgovor na 1–2 vprašanji","price":"33","priceCurrency":"EUR"}
+   "@type": "Service",
+   "@id": "https://studiospirital.si/storitve/kanaliziranje.html#service",
+   "name": "Kanaliziranje",
+   "serviceType": "Duhovne seje",
+   "description": "Kanaliziranje na Ptuju ali preko video klica z licenciranim medijem Celestial Inspiration — vpogled v tvojo dušo, življenjsko pot in pretekla življenja. 45 min, 88 €.",
+   "url": "https://studiospirital.si/storitve/kanaliziranje.html",
+   "image": "https://studiospirital.si/images/kanaliziranje3.jpg",
+   "areaServed": {
+    "@type": "City",
+    "name": "Ptuj"
+   },
+   "provider": {
+    "@type": "HealthAndBeautyBusiness",
+    "@id": "https://studiospirital.si/#business",
+    "name": "Spirital",
+    "url": "https://studiospirital.si/",
+    "telephone": "+38640301055"
+   },
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Kanalizirana seja (45 min)",
+     "price": "88",
+     "priceCurrency": "EUR"
+    },
+    {
+     "@type": "Offer",
+     "name": "Odgovor na 1–2 vprašanji",
+     "price": "33",
+     "priceCurrency": "EUR"
+    }
    ]
   },
   {
-   "@type":"BreadcrumbList",
-   "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Domov","item":"https://studiospirital.si/"},
-    {"@type":"ListItem","position":2,"name":"Storitve","item":"https://studiospirital.si/#storitve"},
-    {"@type":"ListItem","position":3,"name":"Kanaliziranje"}
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Ali moram imeti pripravljena vprašanja?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ni obvezno, priporočam pa ti, da si vprašanja pripraviš vnaprej. Lahko pa jih napišeš oziroma zastaviš tudi direktno med kanaliziranjem."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ali lahko vprašam o drugi osebi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Lahko vprašanje postaviš v povezavi s svojim odnosom do te osebe. Ne posredujem pa informacij, ki posegajo v zasebnost, notranjost ali svobodno voljo druge osebe."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ali lahko vprašam o preteklih življenjih?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Da. Pretekla življenja so lahko ena od tem kanalizirane seje."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ali mi lahko poveš, kaj se bo zgodilo v prihodnosti?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kanaliziranja ne izvajam kot napovedovanje prihodnosti. Prejete informacije se nanašajo na tvojo trenutno pot, potenciale in tisto, kar je zate pomembno razumeti v tem trenutku. Pride pa lahko kakšna jasnost tudi za prihodnost."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kaj če dobim informacijo, ki je ne razumem?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sporočila so podana na način, ki je čim bolj razumljiv in blizu osebi, ki jih prejema. Vedno pa imaš možnost postaviti podvprašanja med samim kanaliziranjem."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ali lahko dobim sporočilo, ki me bo prestrašilo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sporočila iz celestialnega nivoja so vedno ljubeča in njihov namen je vedno predaja jasnosti v tvoje najvišje dobro. Večinoma ljudje ob sporočilih prepoznajo sami sebe in to lahko sproži čustva ganjenosti oziroma čustva, ki so jih potlačili globoko vase (lahko pride na primer občutek žalosti ob določeni prepoznavi). Te pa sporočila vodnikov vedno pomirijo in usmerijo v razrešitev določenega problema. Večina ljudi opisuje občutek olajšanosti po kanaliziranju."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Domov",
+     "item": "https://studiospirital.si/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Storitve",
+     "item": "https://studiospirital.si/#storitve"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Kanaliziranje"
+    }
    ]
   }
  ]
@@ -86,69 +185,416 @@
       <li><a href="#kontakt" data-sl="Kontakt" data-en="Contact">Kontakt</a></li>
       <li class="nav-lang"><button class="lang-toggle" id="langToggle">SL | EN</button></li>
     </ul>
-    <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Kanaliziranje" class="nav-book" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
+    <a href="https://form.lime-booking.com/elina" target="_blank" rel="noopener" class="nav-book" data-sl="Rezerviraj" data-en="Book">Rezerviraj</a>
     <button class="nav-toggle" id="navToggle" aria-label="Meni" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </nav>
 
   <!-- HERO -->
   <section class="hero hero--service">
     <div class="hero-bg">
-      <img src="../images/kanaliziranje.webp" width="600" height="1066" fetchpriority="high" alt="Kanaliziranje">
+      <img src="../images/kanaliziranje3.webp" width="1672" height="941" fetchpriority="high" alt="Elina med kanaliziranjem sedi v svetlem prostoru, okoli nje je krog kart">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-location" data-sl="Storitve" data-en="Services">Storitve</p>
       <h1 class="hero-title" data-sl="KANALIZIRANJE" data-en="CHANNELING">KANALIZIRANJE</h1>
-      <p class="hero-tagline" data-sl="Duhovna seja · Jasnost · Notranje vodstvo" data-en="Spiritual session · Clarity · Inner guidance">Duhovna seja · Jasnost · Notranje vodstvo</p>
-      <div class="hero-actions"><a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Kanaliziranje" class="btn-pill" data-sl="Rezerviraj termin" data-en="Book a session">Rezerviraj termin</a></div>
+      <p class="hero-tagline" data-sl="Ko želiš pogledati globlje." data-en="When you want to look deeper.">Ko želiš pogledati globlje.</p>
+      <div class="hero-actions"><a href="https://form.lime-booking.com/elina" target="_blank" rel="noopener" class="btn-pill" data-sl="Rezerviraj termin" data-en="Book a session">Rezerviraj termin</a></div>
     </div>
   </section>
 
   <!-- INTRO -->
-  <section class="section section--white">
-    <h2 class="section-label" data-sl="O kanaliziranju" data-en="About channeling">O kanaliziranju</h2>
-    <div class="service-page-intro">
-      <p class="service-page-lead" data-lang="sl">Kanaliziranje je globoka osebna seja, v kateri se Elina kot izkušena medijka poveže z višjimi energijami in sporočili, ki so relevantna za vašo življenjsko pot.</p>
-      <p class="service-page-lead" data-lang="en" hidden>Channeling is a deep personal session in which Elina, as an experienced medium, connects with higher energies and messages that are relevant to your life path.</p>
-      <p class="about-text" data-lang="sl">Seja ni vedeževanje — je prostor za globlje razumevanje sebe, svojih vzorcev in smeri, ki ji vaša duša sledi. Elina ustvari varen in zaupljiv prostor, v katerem se vsaka seja odvija edinstveno glede na potrebe posameznika.</p>
-      <p class="about-text" data-lang="en" hidden>A session is not fortune-telling — it is a space for deeper understanding of yourself, your patterns and the direction your soul is following. Elina creates a safe and trusting space in which each session unfolds uniquely according to the individual's needs.</p>
-    </div>
-  </section>
-
-  <!-- BENEFITS -->
   <section class="section section--cream">
-    <h2 class="section-label" data-sl="Koristi" data-en="Benefits">Koristi</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">🌊</div>
-        <h3 class="benefit-title" data-sl="Za telo" data-en="For the body">Za telo</h3>
-        <p class="benefit-text" data-lang="sl">Ko so potisnjene čustvene vsebine iznesene na dan in integrirane, pogosto pride do fizične olajšanosti in sprostitve. Telo nosi naše zgodbe — kanaliziranje pomaga pri njihovem sproščanju.</p>
-        <p class="benefit-text" data-lang="en" hidden>When suppressed emotional content is brought to light and integrated, physical relief and relaxation often follow. The body carries our stories — channeling helps in releasing them.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🧠</div>
-        <h3 class="benefit-title" data-sl="Za um" data-en="For the mind">Za um</h3>
-        <p class="benefit-text" data-lang="sl">Jasnejše razumevanje aktualnih življenjskih situacij ter prostor za raziskovanje vprašanj, občutkov in situacij, ki jih želiš pogledati z drugačne perspektive. Mnogi po seji poročajo o občutku olajšanja, jasnosti in mirnejšem pristopu k izzivom.</p>
-        <p class="benefit-text" data-lang="en" hidden>Clearer understanding of current life situations, and a space to explore questions, feelings and situations you'd like to view from a different perspective. Many report feelings of relief, clarity and a calmer approach to challenges after a session.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🌙</div>
-        <h3 class="benefit-title" data-sl="Za dušo" data-en="For the soul">Za dušo</h3>
-        <p class="benefit-text" data-lang="sl">Kanaliziranje je globoka duhovna izkušnja, ki pomaga pri orientaciji na življenjski poti. Odpira stik z višjim jazom, pomaga razumeti duhovne vzorce in spodbuja osebno rast na ravneh, ki presegajo vsakdanje zavedanje.</p>
-        <p class="benefit-text" data-lang="en" hidden>Channeling is a deep spiritual experience that helps with orientation on the life path. It opens connection with the higher self, helps understand spiritual patterns and encourages personal growth on levels that transcend everyday awareness.</p>
-      </div>
+    <h2 class="section-label" data-sl="Kanaliziranje" data-en="Channeling">Kanaliziranje</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Včasih odgovor že nekje v sebi poznamo, a ga prekrijejo dvomi, strahovi, pričakovanja, mnenja drugih in vsakodnevne misli.</p>
+      <p>Kanaliziranje je prostor, kjer se za trenutek ustaviš in pogledaš globlje – v svojo dušo, svojo življenjsko pot in vprašanja, ki se ti trenutno odpirajo.</p>
+      <p>Skozi kanaliziran proces se povezujem z različnimi duhovnimi vodniki, angeli in drugimi varuhi zavesti iz višjih nivojev obstoja ter prenašam informacije, ki se pokažejo za osebo, ki pride na kanaliziranje.</p>
+      <p class="prose-lines">Kanaliziranje ni napovedovanje prihodnosti. Je prostor za jasnost, razumevanje in vpogled v to, kar je zate v tem trenutku pomembno.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">Sometimes we already know the answer somewhere inside, but it gets covered by doubts, fears, expectations, other people's opinions and everyday thoughts.</p>
+      <p>Channeling is a space where you pause for a moment and look deeper — into your soul, your life path and the questions that are opening up for you right now.</p>
+      <p>Through the channeling process I connect with various spirit guides, angels and other guardians of consciousness from higher levels of existence, and pass on the information that shows itself for the person who comes to the session.</p>
+      <p class="prose-lines">Channeling is not predicting the future. It is a space for clarity, understanding and insight into what matters to you at this moment.</p>
     </div>
   </section>
 
-  <!-- SERVICES & PRICES -->
+  <!-- WHAT IS CHANNELING -->
   <section class="section section--white">
-    <h2 class="section-label" data-sl="Storitve & cenik" data-en="Services & prices">Storitve & cenik</h2>
-    <div class="price-groups">
+    <h2 class="section-label" data-sl="Kaj je kanaliziranje?" data-en="What is channeling?">Kaj je kanaliziranje?</h2>
+    <div class="about-inner">
+      <div class="prose" data-lang="sl">
+        <p class="prose-lead">Kanaliziranje je intuitivna duhovna praksa, pri kateri se kot medij povezujem z višjimi nivoji zavesti in prenašam informacije, ki se skozi proces pokažejo za posamezno osebo.</p>
+        <p>Pri svojem delu dostopam do astralnega in celestialnega nivoja, od koder črpam informacije, povezane z dušo, njeno potjo, izkušnjami in trenutnim življenjskim obdobjem.</p>
+        <p>Vsako sporočilo je podano na način, ki je osebi razumljiv in blizu.</p>
+      </div>
+      <div class="prose" data-lang="en" hidden>
+        <p class="prose-lead">Channeling is an intuitive spiritual practice in which, as a medium, I connect with higher levels of consciousness and pass on the information that shows itself for each individual person through the process.</p>
+        <p>In my work I access the astral and celestial levels, from which I draw information connected to the soul, its path, its experiences and your current period of life.</p>
+        <p>Every message is given in a way that is understandable and close to the person receiving it.</p>
+      </div>
+      <img src="../images/kanaliziranje-2.webp" width="1200" height="2013" loading="lazy" decoding="async" alt="Prostor za kanaliziranje s krogom kart v studiu Spirital" class="about-image gallery-img">
+    </div>
+  </section>
+
+  <!-- CELESTIAL INSPIRATION -->
+  <section class="section section--cream">
+    <h2 class="section-label">Celestial Inspiration</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Pri kanaliziranju uporabljam priznano metodo Celestial Inspiration.</p>
+      <p>Sem licenciran medij Celestial Inspiration in sem zaključila izobraževanje Celestial Inspiration Master. To izobraževanje me je usposobilo za delo varuha in mojstra tehnologije kanaliziranja ter prenosa informacij iz celestialnega nivoja.</p>
+      <p>Celestial Inspiration temelji na delu z različnimi nivoji zavesti ter povezovanju z duhovnimi vodniki, angeli in drugimi varuhi zavesti.</p>
+      <p>Ta del mojega dela je pomemben, ker kanaliziranje zame ni zgolj intuitivno ugibanje ali interpretacija.</p>
+      <p class="prose-lines">Je strukturiran način povezovanja in prenosa informacij, ki ga izvajam z veliko mero spoštovanja, odgovornosti in duhovne integritete.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">In my channeling I use the recognised Celestial Inspiration method.</p>
+      <p>I am a licensed Celestial Inspiration medium and have completed the Celestial Inspiration Master training. This training qualified me to work as a guardian and master of the technology of channeling and of transmitting information from the celestial level.</p>
+      <p>Celestial Inspiration is based on working with different levels of consciousness and connecting with spirit guides, angels and other guardians of consciousness.</p>
+      <p>This part of my work matters, because for me channeling is not merely intuitive guessing or interpretation.</p>
+      <p class="prose-lines">It is a structured way of connecting and transmitting information, which I practise with a great deal of respect, responsibility and spiritual integrity.</p>
+    </div>
+  </section>
+
+  <!-- WHO I CONNECT WITH -->
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="S kom se lahko povežem?" data-en="Who can I connect with?">S kom se lahko povežem?</h2>
+    <div class="prose" data-lang="sl">
+      <p>Pri kanaliziranju se lahko povežem z različnimi oblikami zavesti, med drugim s:</p>
+      <ul>
+        <li>tvojimi osebnimi angeli in vodniki,</li>
+        <li>vnebovzetimi mojstri,</li>
+        <li>nadangeli,</li>
+        <li>duhovnimi vodniki in drugimi varuhi zavesti iz višjih nivojev obstoja.</li>
+      </ul>
+      <p>Vsaka oseba ima svojo energijo, svojo dušo in svojo pot, zato je tudi vsako kanaliziranje drugačno.</p>
+      <p class="prose-lines">Sporočila niso vnaprej pripravljena.<br>Pokažejo se skozi proces in se nanašajo na tisto, kar je za posameznico v danem trenutku pomembno.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p>In channeling I can connect with various forms of consciousness, including:</p>
+      <ul>
+        <li>your personal angels and guides,</li>
+        <li>ascended masters,</li>
+        <li>archangels,</li>
+        <li>spirit guides and other guardians of consciousness from higher levels of existence.</li>
+      </ul>
+      <p>Every person has their own energy, their own soul and their own path, so every channeling session is different too.</p>
+      <p class="prose-lines">The messages are not prepared in advance.<br>They show themselves through the process and relate to what matters to that person at that moment.</p>
+    </div>
+  </section>
+
+  <!-- THE BIGGER PICTURE -->
+  <section class="section section--cream">
+    <h2 class="section-label" data-sl="Dostop do širše slike tvoje duše" data-en="Access to the bigger picture of your soul">Dostop do širše slike tvoje duše</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Pri kanaliziranju lahko dostopam do informacij, povezanih s tvojo dušo, njenimi izkušnjami in tvojo življenjsko potjo.</p>
+      <p>To lahko vključuje:</p>
+      <h3>Sedanjost</h3>
+      <ul>
+        <li>Kaj se trenutno dogaja v tvojem življenju?</li>
+        <li>Zakaj se določena tema ponavlja?</li>
+        <li>Kaj ti želi trenutna situacija pokazati?</li>
+        <li>Kam je trenutno smiselno usmeriti svojo pozornost?</li>
+      </ul>
+      <h3>Preteklost</h3>
+      <ul>
+        <li>Od kod lahko izhaja določen vzorec?</li>
+        <li>Katere izkušnje tvoje duše so lahko povezane s tem, kar doživljaš danes?</li>
+      </ul>
+      <p>Možna so tudi vprašanja o preteklih življenjih.</p>
+      <h3>Prihodnost</h3>
+      <p>Kanaliziranje lahko pokaže različne potenciale, možnosti in energije, povezane s tvojo potjo. Vendar ga ne uporabljam kot prerokovanje.</p>
+      <p class="prose-lines">Prihodnost ni fiksna.<br>Kanaliziranje ti ne pove, kaj se bo zagotovo zgodilo.<br>Pokaže lahko, kaj je glede na tvoje trenutno stanje in tvojo pot pomembno razumeti zdaj.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">In channeling I can access information connected to your soul, its experiences and your life path.</p>
+      <p>This can include:</p>
+      <h3>The present</h3>
+      <ul>
+        <li>What is happening in your life right now?</li>
+        <li>Why does a certain theme keep repeating?</li>
+        <li>What is your current situation trying to show you?</li>
+        <li>Where does it make sense to direct your attention right now?</li>
+      </ul>
+      <h3>The past</h3>
+      <ul>
+        <li>Where might a certain pattern come from?</li>
+        <li>Which experiences of your soul may be connected to what you are going through today?</li>
+      </ul>
+      <p>Questions about past lives are also possible.</p>
+      <h3>The future</h3>
+      <p>Channeling can show different potentials, possibilities and energies connected to your path. But I don't use it as prophecy.</p>
+      <p class="prose-lines">The future is not fixed.<br>Channeling doesn't tell you what will definitely happen.<br>It can show what, given your current state and your path, is important to understand now.</p>
+    </div>
+  </section>
+
+  <!-- WHAT THE GUIDES PASS ON -->
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="Kaj ti bodo vodniki predali?" data-en="What will the guides pass on to you?">Kaj ti bodo vodniki predali?</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Pri kanaliziranju ne gre za to, da bi dobila vse informacije, ki bi jih bilo mogoče dobiti.</p>
+      <p>Dobiš tisto, kar si v tem trenutku pripravljena slišati, sprejeti in sprocesirati na nivoju duše.</p>
+      <p>Sporočila se lahko nanašajo na tvojo trenutno situacijo, odnose, življenjsko pot, družino, notranje procese, pretekle izkušnje ali druge teme, ki so zate pomembne.</p>
+      <p>Pomembno pa je tudi, česa kanaliziranje ne počne. Vodniki ne bodo predali informacij, ki bi bile namenjene temu, da bi te spravile v strah, paniko ali nelagodje.</p>
+      <p class="prose-lines">Sporočila prihajajo na način, ki je ljubeč, jasen in prilagojen osebi, ki jih prejema.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">Channeling isn't about receiving every piece of information that could possibly be received.</p>
+      <p>You receive what you are ready, at this moment, to hear, accept and process on a soul level.</p>
+      <p>The messages may relate to your current situation, relationships, life path, family, inner processes, past experiences or other themes that matter to you.</p>
+      <p>It's also important to know what channeling doesn't do. The guides will not pass on information meant to put you into fear, panic or discomfort.</p>
+      <p class="prose-lines">The messages come in a way that is loving, clear and tailored to the person receiving them.</p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU CAN ASK -->
+  <section class="section section--cream">
+    <h2 class="section-label" data-sl="Kaj lahko vprašaš?" data-en="What can you ask?">Kaj lahko vprašaš?</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Na kanaliziranju lahko vprašaš praktično karkoli, kar se nanaša nate, tvojo dušo in tvojo življenjsko pot.</p>
+      <p>Na primer:</p>
+      <h3>❤️ Odnosi</h3>
+      <ul>
+        <li>Česa me ta odnos uči?</li>
+        <li>Zakaj se v določenem odnosu ponavlja določen (karmični) vzorec?</li>
+        <li>Kako lahko delujem, da se ta odnos izboljša?</li>
+        <li>Kaj je pomembno, da razumem o svojem odnosu z določeno osebo?</li>
+      </ul>
+      <h3>🌿 Življenjska pot</h3>
+      <ul>
+        <li>Kam me trenutno vodi moja pot?</li>
+        <li>Kaj me zadržuje?</li>
+        <li>Kje je moj potencial?</li>
+        <li>Katero področje mojega življenja potrebuje mojo pozornost?</li>
+      </ul>
+      <h3>✨ Duša</h3>
+      <ul>
+        <li>Kaj moja duša trenutno potrebuje?</li>
+        <li>Zakaj sem izbrala določene življenjske izkušnje?</li>
+        <li>Česa se je moja duša prišla naučiti v to življenje?</li>
+        <li>Kaj je moje dušno poslanstvo?</li>
+      </ul>
+      <h3>🌙 Pretekla življenja</h3>
+      <ul>
+        <li>Ali so določeni vzorci povezani z izkušnjami preteklih življenj?</li>
+        <li>Katere dušne darove sem prinesla s seboj iz preteklih življenj?</li>
+        <li>Ali je določen odnos povezan s prejšnjim življenjem?</li>
+        <li>Ali nek moj neutemeljen strah izvira iz preteklega življenja?</li>
+      </ul>
+      <h3>👨‍👩‍👧 Družina in bližnji</h3>
+      <ul>
+        <li>Kaj se skozi določene družinske odnose dogaja zame?</li>
+        <li>Kaj mi določen odnos z bližnjo osebo kaže?</li>
+        <li>Kaj je moja vloga v določenem odnosu?</li>
+      </ul>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">In a channeling session you can ask practically anything that relates to you, your soul and your life path.</p>
+      <p>For example:</p>
+      <h3>❤️ Relationships</h3>
+      <ul>
+        <li>What is this relationship teaching me?</li>
+        <li>Why does a certain (karmic) pattern keep repeating in a particular relationship?</li>
+        <li>How can I act so that this relationship improves?</li>
+        <li>What is important for me to understand about my relationship with a certain person?</li>
+      </ul>
+      <h3>🌿 Life path</h3>
+      <ul>
+        <li>Where is my path leading me right now?</li>
+        <li>What is holding me back?</li>
+        <li>Where does my potential lie?</li>
+        <li>Which area of my life needs my attention?</li>
+      </ul>
+      <h3>✨ Soul</h3>
+      <ul>
+        <li>What does my soul need right now?</li>
+        <li>Why did I choose certain life experiences?</li>
+        <li>What did my soul come to learn in this life?</li>
+        <li>What is my soul's mission?</li>
+      </ul>
+      <h3>🌙 Past lives</h3>
+      <ul>
+        <li>Are certain patterns connected to experiences from past lives?</li>
+        <li>Which soul gifts did I bring with me from past lives?</li>
+        <li>Is a certain relationship connected to a previous life?</li>
+        <li>Does an unfounded fear of mine originate in a past life?</li>
+      </ul>
+      <h3>👨‍👩‍👧 Family and loved ones</h3>
+      <ul>
+        <li>What is happening for me through certain family relationships?</li>
+        <li>What is a particular relationship with someone close showing me?</li>
+        <li>What is my role in a particular relationship?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ETHICS -->
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="Duhovna etika in integriteta" data-en="Spiritual ethics and integrity">Duhovna etika in integriteta</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Pri kanaliziranju je zame zelo pomembna svoboda in integriteta vsakega človeka.</p>
+      <p>Zato lahko prejemam informacije, ki se nanašajo nate in na tvojo pot. Ne morem pa kanalizirati informacij, ki niso namenjene tebi.</p>
+      <p>Če bi na primer želela izvedeti, kaj določena druga oseba misli, čuti, počne ali kakšne skrivnosti ima, tega ne bom posredovala.</p>
+      <p>Ne zato, ker vprašanja ne bi bilo mogoče postaviti. Ampak zato, ker tuja notranjost ni tvoja informacija. Takšno delo bi bilo v nasprotju z načeli duhovne etike in integritete človeka.</p>
+      <p class="prose-lines">Kanaliziranje je namenjeno tebi.<br>Tvoji poti.<br>Tvojemu razumevanju.<br>Tvoji rasti.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">In channeling, the freedom and integrity of every person is very important to me.</p>
+      <p>That is why I can receive information that relates to you and your path. But I cannot channel information that isn't meant for you.</p>
+      <p>If, for example, you wanted to find out what another person thinks, feels or does, or what secrets they have, I won't pass that on.</p>
+      <p>Not because the question can't be asked. But because someone else's inner world is not your information. Work like that would go against the principles of spiritual ethics and human integrity.</p>
+      <p class="prose-lines">Channeling is meant for you.<br>Your path.<br>Your understanding.<br>Your growth.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section--cream">
+    <h2 class="section-label" data-sl="Kako poteka kanalizirana seja?" data-en="How does a channeling session work?">Kako poteka kanalizirana seja?</h2>
+    <ol class="steps" data-lang="sl">
+      <li>
+        <h3>Prideš s svojimi vprašanji</h3>
+        <p>S seboj si prineseš napisana vprašanja, ki mi jih ne rabiš predati, ampak jih imaš zase, da se spomniš vseh tem, ki te zanimajo.</p>
+        <p>Priporočam ti, da jih napišeš oziroma zastaviš čim bolj konkretno, da boš prejela tudi zelo konkretne odgovore.</p>
+      </li>
+      <li>
+        <h3>Ustvariva prostor</h3>
+        <p>Za trenutek se umiriva. Svojo pozornost usmeriš vase in na svoja vprašanja, ki jih želiš raziskati.</p>
+      </li>
+      <li>
+        <h3>Povezava in kanaliziranje</h3>
+        <p>Vzpostavim povezavo z višjimi nivoji zavesti in začnem sprejemati informacije, ki se pokažejo za tvojo dušo.</p>
+        <p>Najprej ti predam uvodno sporočilo tvojih osebnih angelov, ki ti osvetli precej velik del tvojih dvomov o sebi in velikokrat odgovori že na nekaj tvojih vprašanj.</p>
+      </li>
+      <li>
+        <h3>Vprašanja in poglobitev</h3>
+        <p>Srečanje ni samo enosmerno posredovanje sporočil. Lahko postavljaš vprašanja, podvprašanja, poveš, kaj te je nagovorilo, in dodaš kontekst. Tako lahko določeno temo skupaj pogledava še globlje.</p>
+      </li>
+      <li>
+        <h3>Zaključek</h3>
+        <p>Kot medij potrebujem veliko prostora in časa, da se po seansi prizemljim. Zato se kmalu po kanaliziranju posloviva, ostaneva pa na vezi. V kolikor se ti poraja še kakšna dilema ali nejasnost ali se ti je morda odprl kakšen čustven proces, lahko le-to skomunicirava tudi kasneje.</p>
+        <p>Ostanem tukaj zate.</p>
+      </li>
+    </ol>
+    <ol class="steps" data-lang="en" hidden>
+      <li>
+        <h3>You come with your questions</h3>
+        <p>Bring your questions written down. You don't need to hand them to me — they're for you, so you remember all the themes you're curious about.</p>
+        <p>I recommend writing or framing them as concretely as possible, so that you also receive very concrete answers.</p>
+      </li>
+      <li>
+        <h3>We create the space</h3>
+        <p>We settle for a moment. You turn your attention inwards and to the questions you want to explore.</p>
+      </li>
+      <li>
+        <h3>Connection and channeling</h3>
+        <p>I establish a connection with higher levels of consciousness and begin receiving the information that shows itself for your soul.</p>
+        <p>First I pass on an introductory message from your personal angels, which sheds light on a fairly large part of your doubts about yourself and often already answers several of your questions.</p>
+      </li>
+      <li>
+        <h3>Questions and going deeper</h3>
+        <p>The session isn't just a one-way delivery of messages. You can ask questions and follow-up questions, tell me what resonated with you and add context. That way we can look at a particular theme even more deeply together.</p>
+      </li>
+      <li>
+        <h3>Closing</h3>
+        <p>As a medium I need a lot of space and time to ground myself after a session. So we say goodbye soon after the channeling, but we stay in touch. If a dilemma or something unclear comes up afterwards, or an emotional process has opened up for you, we can talk it through later too.</p>
+        <p>I'm here for you.</p>
+      </li>
+    </ol>
+    <div class="prose prose--after" data-lang="sl">
+      <p>Celotno predajo sporočil si lahko tudi posnameš kot glasovno sporočilo. Namenjeno je tebi, da ga ponovno poslušaš in morda kasneje ozavestiš še kakšno drugo informacijo, ki ti je bila predana.</p>
+      <p class="prose-lines">Sporočilo je tudi izjemno močna energijska podpora.</p>
+    </div>
+    <div class="prose prose--after" data-lang="en" hidden>
+      <p>You can also record the whole session as a voice message. It's meant for you, so you can listen to it again and perhaps later become aware of other information that was passed on to you.</p>
+      <p class="prose-lines">The message is also a remarkably strong energetic support.</p>
+    </div>
+  </section>
+
+  <!-- NOT FORTUNE-TELLING -->
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="Kanaliziranje ni napovedovanje prihodnosti" data-en="Channeling is not predicting the future">Kanaliziranje ni napovedovanje prihodnosti</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">To je pomembno. Ne želim ti povedati, kaj se bo zagotovo zgodilo.</p>
+      <p>Tvoja prihodnost ni nekaj, kar bi namesto tebe določila druga oseba.</p>
+      <p>Kanaliziranje je namenjeno jasnosti v tem trenutku. Tisto, kar prejmeš, je povezano s tvojim trenutnim stanjem, tvojo pripravljenostjo in tem, kar je na tvoji poti v danem trenutku pomembno za tvoje najvišje dobro.</p>
+      <ul>
+        <li>Lahko ti pokaže novo perspektivo.</li>
+        <li>Lahko pomaga razumeti določen vzorec.</li>
+        <li>Lahko odpre vprašanje, na katerega prej nisi pomislila.</li>
+        <li>Lahko potrdi nekaj, kar že dolgo čutiš.</li>
+      </ul>
+      <p class="prose-lines">Odločitev, kaj boš s prejetim naredila, pa je vedno tvoja.</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">This matters. I don't want to tell you what will definitely happen.</p>
+      <p>Your future isn't something another person decides for you.</p>
+      <p>Channeling is meant for clarity in this moment. What you receive is connected to your current state, your readiness and what, on your path, matters for your highest good at this moment.</p>
+      <ul>
+        <li>It can show you a new perspective.</li>
+        <li>It can help you understand a certain pattern.</li>
+        <li>It can open a question you hadn't thought of before.</li>
+        <li>It can confirm something you've felt for a long time.</li>
+      </ul>
+      <p class="prose-lines">But the decision about what you do with what you receive is always yours.</p>
+    </div>
+  </section>
+
+  <!-- IS IT FOR YOU -->
+  <section class="section section--cream">
+    <h2 class="section-label" data-sl="Je kanaliziranje zate?" data-en="Is channeling for you?">Je kanaliziranje zate?</h2>
+    <div class="prose" data-lang="sl">
+      <p>Morda je pravi trenutek, če:</p>
+      <ul>
+        <li>se nahajaš na življenjskem razpotju,</li>
+        <li>se ti ponavlja določen vzorec,</li>
+        <li>čutiš, da je v določeni situaciji nekaj več,</li>
+        <li>želiš razumeti svojo življenjsko ali dušno pot,</li>
+        <li>te zanimajo pretekla življenja,</li>
+        <li>želiš globlje razumeti določene odnose,</li>
+        <li>imaš vprašanje, na katerega sama trenutno ne najdeš odgovora,</li>
+        <li>ali preprosto čutiš, da želiš pogledati globlje.</li>
+      </ul>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p>It may be the right moment if:</p>
+      <ul>
+        <li>you are at a crossroads in life,</li>
+        <li>a certain pattern keeps repeating for you,</li>
+        <li>you feel there is something more to a particular situation,</li>
+        <li>you want to understand your life path or soul path,</li>
+        <li>you are curious about past lives,</li>
+        <li>you want to understand certain relationships more deeply,</li>
+        <li>you have a question you can't find the answer to on your own right now,</li>
+        <li>or you simply feel that you want to look deeper.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="section section--white">
+    <h2 class="section-label" data-sl="Rezerviraj kanalizirano sejo" data-en="Book a channeling session">Rezerviraj kanalizirano sejo</h2>
+    <div class="prose" data-lang="sl">
+      <p class="prose-lead">Tvoj vpogled se začne z enim vprašanjem.</p>
+      <p class="prose-lines">Kaj želiš danes vprašati svojo dušo?</p>
+    </div>
+    <div class="prose" data-lang="en" hidden>
+      <p class="prose-lead">Your insight begins with a single question.</p>
+      <p class="prose-lines">What would you like to ask your soul today?</p>
+    </div>
+    <div class="price-groups info-box">
       <div class="price-group">
-        <h3 class="price-group-title" data-sl="Kanaliziranje" data-en="Channeling">Kanaliziranje</h3>
-        <div class="price-group-detail" data-sl="Osebna seja" data-en="Personal session">Osebna seja</div>
+        <h3 class="price-group-title" data-sl="Kanalizirana seja" data-en="Channeling session">Kanalizirana seja</h3>
         <div class="price-row">
-          <span class="price-row-label" data-sl="Do 45 min" data-en="Up to 45 min">Do 45 min</span>
+          <span class="price-row-label" data-sl="Trajanje" data-en="Duration">Trajanje</span>
+          <span class="price-row-value price-row-value--free">45 min</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-label" data-sl="Lokacija" data-en="Location">Lokacija</span>
+          <span class="price-row-value price-row-value--free" data-sl="Studio Spirital ali preko video klica" data-en="Studio Spirital or via video call">Studio Spirital ali preko video klica</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-label" data-sl="Kanalizirana seja (45 min)" data-en="Channeling session (45 min)">Kanalizirana seja (45 min)</span>
           <span class="price-row-value">88 €</span>
         </div>
         <div class="price-row">
@@ -157,16 +603,57 @@
         </div>
       </div>
     </div>
+    <div class="prose">
+      <p data-sl="Po rezervaciji prejmeš vse informacije o prihodu in pripravi." data-en="After booking you'll receive all the information about getting here and preparing.">Po rezervaciji prejmeš vse informacije o prihodu in pripravi.</p>
+      <a href="https://form.lime-booking.com/elina" target="_blank" rel="noopener" class="btn-pill" data-sl="Rezerviraj kanalizirano sejo" data-en="Book a channeling session">Rezerviraj kanalizirano sejo</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--cream">
+    <h2 class="section-label" data-sl="Pogosta vprašanja" data-en="Frequently asked questions">Pogosta vprašanja</h2>
+    <div class="faq">
+      <details>
+        <summary data-sl="Ali moram imeti pripravljena vprašanja?" data-en="Do I need to have questions prepared?">Ali moram imeti pripravljena vprašanja?</summary>
+        <p data-lang="sl">Ni obvezno, priporočam pa ti, da si vprašanja pripraviš vnaprej. Lahko pa jih napišeš oziroma zastaviš tudi direktno med kanaliziranjem.</p>
+        <p data-lang="en" hidden>It isn't required, but I recommend preparing your questions in advance. You can also write them down or ask them directly during the channeling.</p>
+      </details>
+      <details>
+        <summary data-sl="Ali lahko vprašam o drugi osebi?" data-en="Can I ask about another person?">Ali lahko vprašam o drugi osebi?</summary>
+        <p data-lang="sl">Lahko vprašanje postaviš v povezavi s svojim odnosom do te osebe. Ne posredujem pa informacij, ki posegajo v zasebnost, notranjost ali svobodno voljo druge osebe.</p>
+        <p data-lang="en" hidden>You can ask a question in connection with your relationship to that person. But I don't pass on information that intrudes on another person's privacy, inner world or free will.</p>
+      </details>
+      <details>
+        <summary data-sl="Ali lahko vprašam o preteklih življenjih?" data-en="Can I ask about past lives?">Ali lahko vprašam o preteklih življenjih?</summary>
+        <p data-lang="sl">Da. Pretekla življenja so lahko ena od tem kanalizirane seje.</p>
+        <p data-lang="en" hidden>Yes. Past lives can be one of the themes of a channeling session.</p>
+      </details>
+      <details>
+        <summary data-sl="Ali mi lahko poveš, kaj se bo zgodilo v prihodnosti?" data-en="Can you tell me what will happen in the future?">Ali mi lahko poveš, kaj se bo zgodilo v prihodnosti?</summary>
+        <p data-lang="sl">Kanaliziranja ne izvajam kot napovedovanje prihodnosti. Prejete informacije se nanašajo na tvojo trenutno pot, potenciale in tisto, kar je zate pomembno razumeti v tem trenutku. Pride pa lahko kakšna jasnost tudi za prihodnost.</p>
+        <p data-lang="en" hidden>I don't practise channeling as predicting the future. The information you receive relates to your current path, your potentials and what is important for you to understand at this moment. That said, some clarity about the future can come through as well.</p>
+      </details>
+      <details>
+        <summary data-sl="Kaj če dobim informacijo, ki je ne razumem?" data-en="What if I receive information I don't understand?">Kaj če dobim informacijo, ki je ne razumem?</summary>
+        <p data-lang="sl">Sporočila so podana na način, ki je čim bolj razumljiv in blizu osebi, ki jih prejema. Vedno pa imaš možnost postaviti podvprašanja med samim kanaliziranjem.</p>
+        <p data-lang="en" hidden>The messages are given in a way that is as understandable and close as possible to the person receiving them. And you can always ask follow-up questions during the channeling itself.</p>
+      </details>
+      <details>
+        <summary data-sl="Ali lahko dobim sporočilo, ki me bo prestrašilo?" data-en="Could I receive a message that frightens me?">Ali lahko dobim sporočilo, ki me bo prestrašilo?</summary>
+        <p data-lang="sl">Sporočila iz celestialnega nivoja so vedno ljubeča in njihov namen je vedno predaja jasnosti v tvoje najvišje dobro. Večinoma ljudje ob sporočilih prepoznajo sami sebe in to lahko sproži čustva ganjenosti oziroma čustva, ki so jih potlačili globoko vase (lahko pride na primer občutek žalosti ob določeni prepoznavi). Te pa sporočila vodnikov vedno pomirijo in usmerijo v razrešitev določenega problema. Večina ljudi opisuje občutek olajšanosti po kanaliziranju.</p>
+        <p data-lang="en" hidden>Messages from the celestial level are always loving, and their purpose is always to bring clarity for your highest good. Most people recognise themselves in the messages, and this can stir feelings of being deeply moved, or emotions they had pushed down deep inside (for example, a feeling of sadness at a certain recognition). But the guides' messages always calm you and point you towards resolving the issue. Most people describe a feeling of relief after channeling.</p>
+      </details>
+    </div>
   </section>
 
   <!-- CTA -->
   <div class="contact-section">
-    <h2 class="contact-title" data-sl="Rezerviraj sejo kanaliziranja" data-en="Book a channeling session">Rezerviraj sejo kanaliziranja</h2>
-    <p class="contact-subtitle" data-sl="Individualna seja · Piši mi za termin ali me pokliči." data-en="Individual session · Email me to book or call me.">Individualna seja · Piši mi za termin ali me pokliči.</p>
+    <h2 class="contact-title" data-sl="Morda odgovor ni nekaj, kar moraš najti." data-en="Perhaps the answer isn't something you have to find.">Morda odgovor ni nekaj, kar moraš najti.</h2>
+    <p class="contact-subtitle" data-sl="Morda je nekaj, kar si moraš dovoliti slišati. Prisluhni." data-en="Perhaps it's something you need to allow yourself to hear. Listen.">Morda je nekaj, kar si moraš dovoliti slišati. Prisluhni.</p>
     <div class="contact-actions">
-      <a href="mailto:info.spirital@gmail.com?subject=Rezervacija%20%E2%80%93%20Kanaliziranje" class="contact-btn">
+      <a href="https://form.lime-booking.com/elina" target="_blank" rel="noopener" class="contact-btn">
         <span>📅</span>
-        <span data-sl="Rezerviraj termin" data-en="Book a session">Rezerviraj termin</span>
+        <span data-sl="Rezerviraj svojo kanalizirano sejo" data-en="Book your channeling session">Rezerviraj svojo kanalizirano sejo</span>
       </a>
       <a href="tel:+38640301055" class="contact-btn contact-btn--outline">
         <span>📞</span>
@@ -208,8 +695,15 @@
     <div class="footer-legalinfo" data-lang="en" hidden>Spirital, meditacije in organizacija dogodkov, Elina Zdovc s.p. — registered seat: Strmec pri Ormožu 27, 2274 Velika Nedelja, Slovenia · reg. no.: 7467664000 · tax no.: 70947341<br>Studio: Osojnikova cesta 3, 2250 Ptuj, Slovenia · All prices are in EUR. VAT is not charged pursuant to Art. 94(1) of the Slovenian VAT Act (ZDDV-1).</div>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img class="lightbox-img" alt="">
+  </div>
+
   <script src="../js/lang.js"></script>
   <script src="../js/nav.js"></script>
   <script src="../js/consent.js"></script>
+  <script src="../js/lightbox.js"></script>
 </body>
 </html>
